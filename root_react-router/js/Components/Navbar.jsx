@@ -8,23 +8,43 @@ export default class Navbar extends React.Component {
 	componentDidMount() {
 		$('a').each(function() {
 			this.style.color = 'white';
+			// this.style.fontSize = '3vw';
 		})
 	}
 	render() {
-		return (
-			<div style={styles.reactRoot}>
-				<div style={styles.navbarItem}>
-					<div style={styles.textAlignHelper}>
-						<Link to="/">Home</Link>
+		var pageWidth = $('html').outerWidth(true);
+		if(pageWidth > 400) {
+			return (
+				<div style={styles.reactRoot}>
+					<div style={styles.navbarItem}>
+						<div style={styles.textAlignHelper}>
+							<Link to="/">Home</Link>
+						</div>
+					</div>
+					<div style={styles.navbarItem}>
+						<div style={styles.textAlignHelper}>
+							<Link to="/about">About</Link>
+						</div>
 					</div>
 				</div>
-				<div style={styles.navbarItem}>
-					<div style={styles.textAlignHelper}>
-						<Link to="/about">About</Link>
+			)
+		}
+		else {
+			return (
+				<div style={styles.reactRoot}>
+					<div style={styles.navbarItem}>
+						<div style={styles.textAlignHelper}>
+							<Link to="/">Home</Link>
+						</div>
+					</div>
+					<div style={styles.navbarItem}>
+						<div style={styles.textAlignHelper}>
+							<Link to="/about">About</Link>
+						</div>
 					</div>
 				</div>
-			</div>
-		)
+			)			
+		}
 	}
 }
 
@@ -40,9 +60,10 @@ var styles = {
 		display: 'inline-block',
 		color: 'white'
 	},
-	reactRoot: {
+	reactRoot: {		//this is the outer container for the navbar item
 		width: '100%',
-		height: '50px',
+		height: '10%',
+		minHeight: '70px',
 		backgroundColor: 'black',
 		boxSizing: 'border-box'
 	},

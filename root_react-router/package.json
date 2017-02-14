@@ -6,7 +6,7 @@
   "author": "John Coty Embry",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --inline --content-base .",
+    "start": "webpack-dev-server --host=192.168.0.11 --port=8080 --inline --content-base .",
     "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

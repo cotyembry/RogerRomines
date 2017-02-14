@@ -12,6 +12,22 @@
 <head>
 	<title>Coal Creek Dozer Service</title>
 	<link rel="stylesheet" type="text/css" href="./css/index.css" />
+	<script type="text/javascript">
+		var pageObject = {
+			resize: function() {
+				var widthTS = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+				document.getElementsByTagName('html')[0].style.width = widthTS + 'px';
+			},
+			setPageWidth: function() {
+				var widthTS = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+				document.getElementsByTagName('html')[0].style.width = widthTS + 'px';
+				window.addEventListener('resize', pageObject.resize);
+			}
+		}
+		//this function will set the page's width to a fixed pixel width
+		pageObject.setPageWidth();
+		 
+	</script>
 </head>
 <body>
 
