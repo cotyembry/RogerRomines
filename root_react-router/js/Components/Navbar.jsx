@@ -19,6 +19,7 @@ export default class Navbar extends React.Component {
 					<div style={styles.navbarItem}>
 						<div style={styles.textAlignHelper}>
 							<Link to="/">Home</Link>
+							<div style={styles.navbarButton}></div>
 						</div>
 					</div>
 					<div style={styles.navbarItem}>
@@ -49,6 +50,9 @@ export default class Navbar extends React.Component {
 }
 
 var styles = {
+	navbarButton: {
+		position: 'absolute'
+	},
 	navbarItem: {
 		width: '50%',
 		// height: '100%',
