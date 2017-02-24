@@ -6,7 +6,7 @@
   "author": "John Coty Embry",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --host=192.168.0.11 --port=8080 --inline --content-base .",
+    "start": "webpack-dev-server --inline --content-base .",
     "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,8 +14,10 @@
     "babel-polyfill": "^6.13.0",
     "babel-runtime": "^6.11.6",
     "jquery": "^3.1.0",
+    "jquery-ui": "^1.12.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-image-gallery": "^0.7.13",
     "react-router": "^3.0.2",
     "surge": "^0.18.0"
   },
