@@ -7,12 +7,17 @@ import About from './Components/Routes/About.jsx';
 import Home from './Components/Routes/Home.jsx';
 import NotFound404 from './Components/Routes/NotFound404.jsx';
 
+
+import Test from './Components/Routes/Test.jsx';
+
+
 import $ from 'jquery';
 
 // import Navbar from './Components/Navbar.jsx';
-
 // ReactDOM.render(<Navbar />, document.getElementById('navbar'))
+
 $(document).ready(function() {
+	    // <Route path="/test" component={Test}/>
 	ReactDOM.render(
 	  <Router history={hashHistory}>
 	    <Route path="/" component={Home}/>

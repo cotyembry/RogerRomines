@@ -1,28 +1,52 @@
 import React from 'react';
 
-/*
-	this component should be able to take in a list of src references of images and cycle through them
-*/
+import ImageGallery from 'react-image-gallery';
+
+// import "react-image-gallery/styles/css/image-gallery.css";
+import '../../css/image-gallery.css';
+
 export default class ImageThumbnail extends React.Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			//if the src prop wasn't passed in, I default it to ''
-			currentVisibleImage: typeof this.props.src === 'undefined' ? '' : this.props.src
-		}
+		this.defaultImages = [
+	      {
+	        original: 'http://lorempixel.com/1000/600/nature/1/',
+	        thumbnail: 'http://lorempixel.com/250/150/nature/1/',
+	      },
+	      {
+	        original: 'http://lorempixel.com/1000/600/nature/2/',
+	        thumbnail: 'http://lorempixel.com/250/150/nature/2/'
+	      },
+	      {
+	        original: 'http://lorempixel.com/1000/600/nature/3/',
+	        thumbnail: 'http://lorempixel.com/250/150/nature/3/'
+	      }
+	    ]
 	}
 	render() {
 		return (
-			<div>
-				{ this.state.currentVisibleImage }
+			<div style={styles.reactRoot}>
+				<div style={styles.imageGalleryContainer}>
+					<ImageGallery
+				        items={this.defaultImages}
+				        slideInterval={3000}
+				        onImageLoad={this.handleImageLoad}
+				        autoPlay={true}
+				        slideDuration={777} />
+				</div>
 			</div>
 		)
 	}
-	//transitionImage should cleanly animate the current image on the screen off the screen (for now let it just slide to the left and go out of view)
-	transitionImage() {
-
-	}
 }
 
-
+var styles = {
+	imageGalleryContainer: {
+		width: '100%',
+		height: '70%'
+	},
+	reactRoot: {
+		width: '100%',
+		height: '100%',
+		backgroundColor: 'black'
+	}
+}
