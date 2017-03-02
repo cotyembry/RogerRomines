@@ -5,6 +5,10 @@ import { Link } from 'react-router';
 import ImageThumbnail from '../ImageThumbnail.jsx';
 import Navbar from '../Navbar.jsx';
 
+
+import ThirtyYearsExperience from '../ThirtyYearsExperienceIcon.jsx';
+
+
 export default class Home extends React.Component {
 	render() {
 
@@ -34,10 +38,30 @@ export default class Home extends React.Component {
 						<ImageThumbnail />
 					</div>
 
-					<h1 style={styles.heading}>Right now I just have some example pictures to give you an example of what I have been working on. I will hopefully be adding pictures of some prior projects that have been completed</h1>
+
+
+
+
+
+					{/*
+						<h1 style={styles.heading}></h1>
+						<ThirtyYearsExperience/> 
+					*/}
+					
+					
+
+
+
+					<div style={styles.container}>
+						Right now I just have some example pictures to give you an example of what I have been working on. I will hopefully be adding pictures of some prior projects that have been completed
+					</div>
+
+
+		
 					<h2>Thanks for visiting!</h2>
-					<h3>Oh yeah, and come back later!</h3>
-					{/*<h4>Thank you!!</h4>*/}
+					<h3 style={{marginBottom: 500}}>Oh yeah, and come back later!</h3>
+
+
 				</div>
 			</div>
 		)
@@ -45,6 +69,17 @@ export default class Home extends React.Component {
 }
 
 var styles = {
+	container: {
+		width: '80%',
+		fontSize: 33,
+		padding: 28,
+		marginTop: 63,
+		marginLeft: 'auto',
+		marginRight: 'auto',
+		height: 200,
+		backgroundColor: '#cccccc',
+		boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.5)',
+	},
 	content: {
 		textAlign: 'center',
 		overflowY: 'scroll'
@@ -61,6 +96,6 @@ var styles = {
 	reactRoot: {
 		width: '100%',
 		height: '100%',
-		backgroundColor: 'yellow'
+		backgroundColor: '#f2f2f2'
 	}
 }

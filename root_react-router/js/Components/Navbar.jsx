@@ -4,7 +4,12 @@ import { Link } from 'react-router';
 
 import $ from 'jquery';
 
-require('../../css/navbar.css');
+// require('../../css/navbar.css');
+
+
+import ThirtyYearsExperience from './ThirtyYearsExperienceIcon.jsx';
+
+
 
 export default class Navbar extends React.Component {
 	constructor(props) {
@@ -80,6 +85,9 @@ export default class Navbar extends React.Component {
 					</div>
 				</div>
 				*/}
+
+				<ThirtyYearsExperience />
+
 			</div>
 		)
 
@@ -183,7 +191,7 @@ var styles = {
 	reactRoot: {		//this is the outer container for the navbar item
 		width: '100%',
 		height: '10%',
-		minHeight: '70px',
+		minHeight: 140,
 		backgroundColor: 'black',
 		boxSizing: 'border-box'
 	},
