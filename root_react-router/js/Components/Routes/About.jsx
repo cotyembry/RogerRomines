@@ -69,7 +69,7 @@ var styles = {
 	reactRoot: {
 		width: '100%',
 		height: '100%',
-		overflow: 'auto',
+		// overflow: 'auto',
 		backgroundColor: '#f2f2f2'
 	}
 }
