@@ -67,6 +67,9 @@ export default class Navbar extends React.Component {
 
 		return (
 			<div style={styles.reactRoot}>
+				
+				<ThirtyYearsExperience />
+
 				<div style={styles.navbarItem1}>
 					<div className="parentOfLinkForRouter" style={styles.textAlignHelper}>
 						<Link to="/">Home</Link>
@@ -86,7 +89,6 @@ export default class Navbar extends React.Component {
 				</div>
 				*/}
 
-				<ThirtyYearsExperience />
 
 			</div>
 		)
@@ -169,13 +171,17 @@ var styles = {
 	navbarItem1: {
 		width: '50%',
 		height: '100%',
-		position: 'relative',
+		position: 'absolute',
+		left: 0,
+		top: 0,
 		// display: 'table',
 		textAlign: 'center',
 		// verticalAlign: 'middle',
 		cursor: 'pointer',
 		display: 'inline-block',
-		color: 'white'
+		color: 'white',
+		height: '10%',
+		minHeight: 140,
 	},
 	navbarItem2: {
 		width: '50%',
@@ -186,7 +192,8 @@ var styles = {
 		// verticalAlign: 'middle',
 		cursor: 'pointer',
 		display: 'inline-block',
-		color: 'white'
+		color: 'white',
+		float: 'right'
 	},
 	reactRoot: {		//this is the outer container for the navbar item
 		width: '100%',

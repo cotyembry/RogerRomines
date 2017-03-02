@@ -15,6 +15,6 @@ var styles = {
 	svg: {
 		top: 0,
 		left: 0,
-		position: 'absolute',
+		position: 'relative',
 	}
 }

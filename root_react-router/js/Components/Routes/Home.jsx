@@ -76,13 +76,13 @@ var styles = {
 		marginTop: 63,
 		marginLeft: 'auto',
 		marginRight: 'auto',
-		height: 200,
+		// height: 200,
 		backgroundColor: '#cccccc',
 		boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.5)',
 	},
 	content: {
 		textAlign: 'center',
-		overflowY: 'scroll'
+		// overflowY: 'scroll'
 	},
 	heading: {
 		width: '75%',
