@@ -1,3 +1,4 @@
+
 {
   "name": "root",
   "version": "1.0.0",
@@ -5,6 +6,9 @@
   "main": "index.js",
   "author": "John Coty Embry",
   "license": "MIT",
+  "//": {
+  	"//": "webpack-dev-server --host=192.168.96.1 --port=8080 --inline --content-base ."
+  },
   "scripts": {
     "start": "webpack-dev-server --inline --content-base .",
     "webpack": "webpack",
