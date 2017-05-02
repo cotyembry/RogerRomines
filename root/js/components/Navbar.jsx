@@ -1,59 +1,219 @@
 import React from 'react';
 
-var Navbar = React.createClass({
-	mouseEnter: function(e) {
-		e.target.style.background = '#ABABAB';
-	},
-	mouseLeave: function(e) {
-		e.target.style.background = '#BABABA';
-	},
-	mouseDown: function(e) {
-		e.target.style.background = '#9B9B9B';	
-	},
-	mouseUp: function(e) {
-		e.target.style.background = '#BABABA';
-		switch(e.target.id) {
-			case 'contact':
-				location = './routes/contact.html';
-				break;
-			case 'about':
-				location = './routes/about.html';
-				break;
-			default:
-				location = './routes/one.html';
-		}
-	},
+import { Link } from 'react-router';
 
-	render: function() {
+import $ from 'jquery';
+
+// require('../../css/navbar.css');
+
+
+import ThirtyYearsExperience from './ThirtyYearsExperienceIcon.jsx';
+
+
+
+export default class Navbar extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			navbarItemBackgroundColor: ''
+		}
+	}
+	componentDidMount() {
+		var self = this;
+		$('.parentOfLinkForRouter a').each(function() {
+			this.style.color = 'white';
+
+			//using the callback function as sort of a closure, I can pass in the actual jquery event
+			self.mouseEnterOverAElement = self.mouseEnterOverAElement.bind(self)
+			self.mouseLeaveOverAElement = self.mouseLeaveOverAElement.bind(self)
+			$(this).on('mouseenter', function(event) {
+				var location = event.target.href.split('#')[1];
+				self.mouseEnterOverAElement(location);
+			})
+
+			$(this).on('mouseleave', function(event) {
+				var location = event.target.href.split('#')[1];
+				self.mouseLeaveOverAElement(location);
+			})
+
+
+
+			// $(this).addClass('navbar')
+			// this.style.fontSize = '3vw';
+		})
+	}
+	mouseEnterOverAElement(location) {
+		// var location = event.target.href.split('#')[1];
+		this.setNavbarMouseEnterColor(location);
+
+
+
+	}
+	mouseLeaveOverAElement(location) {
+		this.setNavbarMouseLeaveColor(location);
+
+	}
+	render() {
+		styles.navbarItem1 = { ...styles.navbarItem1, backgroundColor: this.state.navbarItem1BackgroundColor }
+		styles.navbarItem2 = { ...styles.navbarItem2, backgroundColor: this.state.navbarItem2BackgroundColor }
+
+		// console.log(this.state.navbarItemBackgroundColor)
+		// console.log(styles.navbarItem)
+
+
+		// var pageWidth = $('html').outerWidth(true);
+		// if(pageWidth > 400) {
+
 		return (
-			<div style={styles.navbar}>
-				<div style={styles.navbarItem} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>Home</div>
-				<div id="about" style={styles.navbarItem} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>About</div>
-				<div style={styles.navbarItem} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>Services</div>
-				<div id="contact" style={styles.navbarItem} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>Contact Information</div>
-				{/*<div style={styles.navbarItem} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>five</div>
-				<div style={styles.navbarItem} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>six</div>
-				<div style={styles.navbarItem} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} onMouseDown={this.mouseDown} onMouseUp={this.mouseUp}>seven</div>*/}
+			<div style={styles.reactRoot}>
+				
+				<ThirtyYearsExperience />
+
+				<div style={styles.navbarItem1}>
+					<div className="parentOfLinkForRouter" style={styles.textAlignHelper}>
+						<Link to="/">Home</Link>
+						<div style={styles.navbarButton}></div>
+					</div>
+				</div>
+				<div style={styles.navbarItem2}>
+					<div className="parentOfLinkForRouter" style={styles.textAlignHelper}>
+						<Link to="/about">About</Link>
+					</div>
+				</div>
+				{/*
+				<div style={styles.navbarItem}>
+					<div style={styles.textAlignHelper}>
+						<Link to="/test">test</Link>
+					</div>
+				</div>
+				*/}
+
+
 			</div>
 		)
+
+		// }
+		// else {
+		// 	return (
+		// 		<div style={styles.reactRoot}>
+		// 			<div style={styles.navbarItem}>
+		// 				<div style={styles.textAlignHelper}>
+		// 					<Link to="/">Home</Link>
+		// 				</div>
+		// 			</div>
+		// 			<div style={styles.navbarItem}>
+		// 				<div style={styles.textAlignHelper}>
+		// 					<Link to="/about">About</Link>
+		// 				</div>
+		// 			</div>
+		// 		</div>
+		// 	)			
+		// }
 	}
-})
+
+	setNavbarMouseEnterColor(location) {
+		switch(location) {
+			case '/':
+				this.setState({
+					navbarItem1BackgroundColor: 'orange',	//active
+					navbarItem2BackgroundColor: ''
+
+				})
+				break;
+
+			case '/about':
+				this.setState({
+					navbarItem2BackgroundColor: 'orange',	//active
+					navbarItem1BackgroundColor: ''
+				})
+
+				break;
+		}
+	}
+	setNavbarMouseLeaveColor(location) {
+		switch(location) {
+			case '/':
+				this.setState({
+					navbarItem1BackgroundColor: '',	//active
+					navbarItem2BackgroundColor: ''
+
+				})
+				break;
+
+			case '/about':
+				this.setState({
+					navbarItem2BackgroundColor: '',	//active
+					navbarItem1BackgroundColor: ''
+				})
+
+				break;
+		}
+	}
+
+}
 
 var styles = {
-	navbar: {
-		width: '100%',
-		background: '#BABABA',
-		marginTop: 100
+	navbarButton: {
+		position: 'absolute'
 	},
 	navbarItem: {
-		width: '25%',
-		height: 42,
-		display: 'inline-block',
-		marginLeft: 'auto',
-		marginRight: 'auto',
+		width: '50%',
+		height: '100%',
+		position: 'relative',
+		// display: 'table',
 		textAlign: 'center',
-		cursor: 'pointer'
+		// verticalAlign: 'middle',
+		cursor: 'pointer',
+		display: 'inline-block',
+		color: 'white'
+	},
+	navbarItem1: {
+		width: '50%',
+		height: '100%',
+		position: 'absolute',
+		left: 0,
+		top: 0,
+		// display: 'table',
+		textAlign: 'center',
+		// verticalAlign: 'middle',
+		cursor: 'pointer',
+		display: 'inline-block',
+		color: 'white',
+		height: '10%',
+		minHeight: 140,
+	},
+	navbarItem2: {
+		width: '50%',
+		height: '100%',
+		position: 'relative',
+		// display: 'table',
+		textAlign: 'center',
+		// verticalAlign: 'middle',
+		cursor: 'pointer',
+		display: 'inline-block',
+		color: 'white',
+		float: 'right'
+	},
+	reactRoot: {		//this is the outer container for the navbar item
+		width: '100%',
+		height: '10%',
+		minHeight: 140,
+		backgroundColor: 'black',
+		boxSizing: 'border-box'
+	},
+	textAlignHelper: {
+		// marginTop: 'auto',
+		// marginBottom: 'auto',
+		// textAlign: 'center',
+		// width: '100%',
+		// height: '100%',
+		// lineHeight: '100%',
+		display: 'inline-block',
+		verticalAlign: 'middle',
+		position: 'absolute',
+		top: '1.5em',
+		marginTop: '-1.5em',
 	}
 }
 
-module.exports = Navbar;

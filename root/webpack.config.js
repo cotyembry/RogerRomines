@@ -1,19 +1,25 @@
 module.exports = {
-  entry: './js/indexToCreateAbout.js',
+  entry: './js/index.js',
   output: {
     path: __dirname,
-    filename: './dist/about.js'
+    filename: './dist/bundle.js'
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        plugins: ['transform-runtime'],
-        presets: ['es2015', 'stage-0', 'react'],
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          plugins: ['transform-runtime'],
+          presets: ['es2015', 'stage-0', 'react'],
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
       }
-    }]
+    ]
   }
 }
 // {
