@@ -10,6 +10,11 @@ import ThirtyYearsExperience from '../ThirtyYearsExperienceIcon.jsx';
 
 
 export default class Home extends React.Component {
+	componentDidMount() {
+		$('.fitText').each(function() {
+			$(this).fitText();
+		})
+	}
 	render() {
 
 		//styles.content
@@ -25,14 +30,8 @@ export default class Home extends React.Component {
 			<div style={styles.reactRoot}>
 				<Navbar />
 				<div style={styles.content}>
-					{/*
-						TODO: add this feature to this <Home /> component
 
-						maybe instead of writing my own custom ImageThumbnail component I will use the following api that is already written:
-							https://github.com/xiaolin/react-image-gallery
-					*/}
 
-					{/**/}
 
 					<div style={styles.ImageThumbnailContainer}>
 						<ImageThumbnail />
@@ -52,15 +51,20 @@ export default class Home extends React.Component {
 
 
 
-					<div style={styles.container}>
-						Right now I just have some example pictures to give you an example of what I have been working on. I will hopefully be adding pictures of some prior projects that have been completed
+					<div className='fitText' style={styles.container2}>
+						Coal Creek Dozer Service
 					</div>
 
+					{/*
+					<div style={styles.container3}>
+						There is no job too big or small
+					</div>
+					*/}
 
-		
+
+					<center style={styles.container1}>This Site is under development right now, come back later!s</center>
 					<h2>Thanks for visiting!</h2>
-					<h3 style={{marginBottom: 500}}>Oh yeah, and come back later!</h3>
-
+					
 
 				</div>
 			</div>
@@ -69,7 +73,7 @@ export default class Home extends React.Component {
 }
 
 var styles = {
-	container: {
+	container1: {
 		width: '80%',
 		fontSize: 33,
 		padding: 28,
@@ -79,6 +83,26 @@ var styles = {
 		// height: 200,
 		backgroundColor: '#cccccc',
 		boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.5)',
+	},
+	container2: {
+		width: '100%',
+		// height: 200,
+		boxSizing: 'border-box',
+		fontSize: 21,
+		// borderTop: 'solid 2px white',
+		// paddingTop: '90px',
+		backgroundColor: '#cccccc',
+		// boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.5)',
+	},
+	container3: {
+		width: '100%',
+		// height: 200,
+		boxSizing: 'border-box',
+		fontSize: 21,
+		// borderTop: 'solid 2px white',
+		// paddingTop: '90px',
+		backgroundColor: '#f2f2f2',
+		// boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.5)',
 	},
 	content: {
 		textAlign: 'center',
